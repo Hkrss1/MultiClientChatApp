@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C996CC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #C996CC;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane prefHeight="118.0" prefWidth="241.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="-1.0" prefHeight="119.0" prefWidth="202.0" text="UChat">
+                           <font>
+                              <Font name="Freestyle Script" size="71.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <VBox prefHeight="118.0" prefWidth="522.0">
+               <children>
+                  <HBox prefHeight="4.0" prefWidth="567.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="115.0" text="IP:" textFill="#f8f6f6">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="ipField" prefHeight="30.0" prefWidth="273.0" promptText="Enter IP" style="-fx-background-radius: 20px;">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="172.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="108.0" text="Username: " textFill="#fff9f9">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="usernameInput" prefHeight="30.0" prefWidth="267.0" promptText="Enter Username to Login" style="-fx-background-radius: 20px;">
+                           <HBox.margin>
+                              <Insets left="5.0" top="20.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Button fx:id="loginBtn" mnemonicParsing="false" onMouseClicked="#loginBtnClicked" prefHeight="25.0" prefWidth="56.0" style="-fx-background-radius: 20px; -fx-background-color: #1C0C5B;" text="Login" textFill="#fffafa">
+                           <HBox.margin>
+                              <Insets left="5.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="onlineLabel" alignment="CENTER_RIGHT" prefHeight="114.0" prefWidth="137.0" text="ONLINE:" textFill="#02ff31" visible="false">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameLabel" alignment="CENTER" prefHeight="114.0" prefWidth="224.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="logoutBtn" mnemonicParsing="false" onMouseClicked="#logoutBtnClicked" prefHeight="31.0" prefWidth="59.0" style="-fx-background-color: #1C0C5B; -fx-background-radius: 20px;" text="Logout" textFill="WHITE" visible="false">
+               <HBox.margin>
+                  <Insets top="40.0" />
+               </HBox.margin>
+            </Button>
+            <ImageView fitHeight="108.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@SagarLogo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="7.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="620.0" prefWidth="312.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="69.0" prefWidth="318.0" style="-fx-background-color: #3D2C8D;" text="Online Users: " textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font></Label>
+            <TextArea fx:id="userList" editable="false" prefHeight="553.0" prefWidth="312.0">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></TextArea>
+         </children>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="chatOutput" editable="false" prefHeight="582.0" prefWidth="968.0" promptText="Inbox">
+               <font>
+                  <Font size="24.0" />
+               </font></TextArea>
+            <HBox prefHeight="70.0" prefWidth="968.0">
+               <children>
+                  <TextField fx:id="chatInput" prefHeight="35.0" prefWidth="862.0" promptText="Enter Message" style="-fx-background-radius: 20px;">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                  <Button mnemonicParsing="false" onMouseClicked="#onSendBtnClicked" prefHeight="37.0" prefWidth="90.0" style="-fx-background-radius: 20px; -fx-background-color: #1C0C5B;" text="Send" textFill="#f2efef">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
